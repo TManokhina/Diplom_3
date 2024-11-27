@@ -11,7 +11,6 @@ import static org.apache.http.HttpHeaders.AUTHORIZATION;
 
 
 public class UserClient {
-    public static final String REGISTRATION_USER_PATH = "/api/auth/register";
     public static final String AUTHORIZATION_USER_PATH = "/api/auth/login";
     public static final String UPDATING_USER_DATA_PATH = "/api/auth/user";
     String BASE_URI_PATH = "https://stellarburgers.nomoreparties.site";

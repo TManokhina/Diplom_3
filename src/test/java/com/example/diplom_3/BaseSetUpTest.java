@@ -19,7 +19,7 @@ public class BaseSetUpTest {
     protected WebDriver driver;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         String targetBrowser = System.getProperty(TARGET_BROWSER_PROPERTY, CHROME_BROWSER);
         driver = YANDEX_BROWSER.equalsIgnoreCase(targetBrowser)
                 ? createYandexDriver()

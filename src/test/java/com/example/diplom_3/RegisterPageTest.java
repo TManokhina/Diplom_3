@@ -5,7 +5,6 @@ import com.example.diplom_3.page.object.LoginPage;
 import com.example.diplom_3.page.object.RegisterPage;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Description;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -67,7 +66,6 @@ public class RegisterPageTest extends BaseSetUpTest {
         assertTrue("Получилось зарегистрироваться с паролем меньше 6 символов",
                 registerPage.errorTextFieldIsDisplayed());
     }
-
 
 
 }
