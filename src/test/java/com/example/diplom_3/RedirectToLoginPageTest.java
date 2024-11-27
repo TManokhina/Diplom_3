@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static com.example.diplom_3.page.object.ForgotPasswordPage.FORGOT_PASSWORD_PATH;
-import static com.example.diplom_3.page.object.HomePage.BASE_URI_PATH;
+import static com.example.diplom_3.page.object.HomePage.HOME_PATH;
 import static com.example.diplom_3.page.object.LoginPage.LOGIN_URL;
 import static com.example.diplom_3.page.object.RegisterPage.REGISTER_PATH;
 import static org.junit.Assert.assertEquals;
@@ -28,7 +28,7 @@ public class RedirectToLoginPageTest extends BaseSetUpTest {
     @Test
     @Description("Проверка перехода по кнопке «Войти в аккаунт» на главной странице к странице логина")
     public void checkRedirectFromHomePageLogin() {
-        driver.get(BASE_URI_PATH);
+        driver.get(HOME_PATH);
         homePage = new HomePage(driver);
         homePage.clickOnLoginButton();
         loginPage.waitForLoad();
@@ -37,7 +37,7 @@ public class RedirectToLoginPageTest extends BaseSetUpTest {
     @Test
     @Description("Проверка перехода по кнопке «Войти в аккаунт» на главной странице к странице логина")
     public void checkRedirectFromHomePagePersonalAccount() {
-        driver.get(BASE_URI_PATH);
+        driver.get(HOME_PATH);
         homePage = new HomePage(driver);
         homePage.clickOnAccountButton();
         loginPage.waitForLoad();
