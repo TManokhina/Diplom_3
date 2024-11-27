@@ -1,5 +1,6 @@
 package com.example.diplom_3.page.object;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,31 +26,32 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
-
+    @Step("Click on the login button on the Home page.")
     public void clickOnLoginButton() {
         driver.findElement(loginButton).click();
     }
 
+    @Step("Click on the account button on the Home page.")
     public void clickOnAccountButton() {
         driver.findElement(accountButton).click();
     }
-
+    @Step("Choose a section of buns in the Constructor on the Home page.")
     public void chooseBunSection() {
         driver.findElement(bunSection).click();
     }
-
+    @Step("Choose a section of sauces in the Constructor on the Home page.")
     public void chooseSaucesSection() {
         driver.findElement(saucesSection).click();
     }
-
+    @Step("Choose a section of fillings in the Constructor on the Home page.")
     public void chooseFillingSection() {
         driver.findElement(fillingSection).click();
     }
-
+    @Step("Get the text of the highlighted section in Constructor on the Home page.")
     public String getHighlightedSectionText() {
         return driver.findElement(highlightedSectionText).getText();
     }
-
+    @Step("Wait for the Home page to load.")
     public void waitForLoad() {
         // подожди 8 секунд, пока появится веб-элемент с нужным текстом
         new WebDriverWait(driver, Duration.ofSeconds(8)).until(urlToBe(HOME_PATH));

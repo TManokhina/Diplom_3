@@ -64,7 +64,6 @@ public class RegisterPageTest extends BaseSetUpTest {
         email = faker.internet().emailAddress();
         password = faker.bothify("?????");
         registerPage.registrationWithUserCreds(name, email, password);
-        //loginPage.waitForLoad();
         assertTrue("Получилось зарегистрироваться с паролем меньше 6 символов",
                 registerPage.errorTextFieldIsDisplayed());
     }

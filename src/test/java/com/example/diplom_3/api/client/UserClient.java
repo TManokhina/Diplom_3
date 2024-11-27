@@ -1,5 +1,6 @@
 package com.example.diplom_3.api.client;
 
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -16,49 +17,7 @@ public class UserClient {
     String BASE_URI_PATH = "https://stellarburgers.nomoreparties.site";
     String accessToken;
 
-    public void setUpApi() {
-        RestAssured.baseURI = BASE_URI_PATH;
-    }
-
-    public Response createUserResponse(UserCredentials userCredentials) {
-        return given()
-                .contentType(JSON)
-                .and()
-                .body(userCredentials)
-                .post(REGISTRATION_USER_PATH);
-    }
-
-    public Response authUserResponse(UserCredentials userCredentials) {
-        return given()
-                .contentType(JSON)
-                .and()
-                .body(userCredentials)
-                .post(AUTHORIZATION_USER_PATH);
-    }
-
-    public Response updatingUserDataResponse(String accessToken, String jsonUpdatingData) {
-        return given()
-                .contentType(JSON)
-                .header(AUTHORIZATION, accessToken)
-                .and()
-                .body(jsonUpdatingData)
-                .patch(UPDATING_USER_DATA_PATH);
-    }
-
-    public Response updatingUserDataResponseWithoutToken(String jsonUpdatingData) {
-        return given()
-                .contentType(JSON)
-                .and()
-                .body(jsonUpdatingData)
-                .patch(UPDATING_USER_DATA_PATH);
-    }
-
-    public void tearDownApi() {
-        if (accessToken != null) {
-            with().contentType(JSON).header(AUTHORIZATION, accessToken).delete(UPDATING_USER_DATA_PATH);
-        }
-    }
-
+    @Step("Send DELETE request to delete user.")
     public void deleteRegisteredUser(String name, String email, String password) {
         RestAssured.baseURI = BASE_URI_PATH;
         UserCredentials user = new UserCredentials();

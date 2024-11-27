@@ -1,8 +1,8 @@
 package com.example.diplom_3.page.object;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -20,17 +20,18 @@ public class LoginPage {
         this.driver = driver;
     }
 
+    @Step("Login with email and password on the login page.")
     public void loginWithUserCreds(String email, String password) {
         driver.findElement(fieldForAddEmail).sendKeys(email);
         driver.findElement(fieldForAddPassword).sendKeys(password);
         driver.findElement(enterButton).click();
     }
 
+    @Step("Wait for the Login page to load.")
     public void waitForLoad() {
         // подожди 8 секунд, пока появится веб-элемент с нужным текстом
         new WebDriverWait(driver, Duration.ofSeconds(8)).until(urlToBe(LOGIN_URL));
     }
-
 
 
 }
